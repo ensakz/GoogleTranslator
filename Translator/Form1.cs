@@ -12,32 +12,40 @@ namespace Translator
 {
     public partial class Form1 : Form
     {
-        YandexTranslator yt;
+        GoogleTranslator gt;
 
         public Form1()
         {
             InitializeComponent();
 
-            yt = new YandexTranslator();
+            gt = new GoogleTranslator();
         }
 
         private void translateButton_Click(object sender, EventArgs e)
         {
-            string lang;
+            string source;
+            string target;
 
             if (ukEnRadioButton.Checked == true)
             {
-                lang = "uk-en";
+                source = "uk";
+                target = "en";
             }
             else
             {
-                lang = "en-uk";
+                source = "en";
+                target = "uk";
             }
 
-            outputTextBox.Text = yt.Translate(inputTextBox.Text, lang);
+            outputTextBox.Text = gt.Translate(inputTextBox.Text, source, target);
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
